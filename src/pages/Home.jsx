@@ -4,26 +4,37 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="home-page">
-      <h1>Welcome to Future Mobility Hub</h1>
-      <p>
-        Future Mobility Hub is a smart mobility platform leveraging AI and
-        real-time analytics to optimize transportation routes, vehicle
-        utilization, and traffic management.
-      </p>
+      <header className="hero-section">
+        <h1>Welcome to Future Mobility Hub</h1>
+        <p>
+          A next-generation platform integrating smart city data, predictive
+          analytics, and mobility insights to enhance urban transportation.
+        </p>
+        <div className="cta-buttons">
+          <Link to="/register" className="btn-primary">
+            Get Started
+          </Link>
+          <Link to="/login" className="btn-secondary">
+            Login
+          </Link>
+        </div>
+      </header>
 
-      <section className="features">
-        <h2>Features</h2>
+      <section className="features-section">
+        <h2>Core Features</h2>
         <ul>
-          <li>Plan trips with predictive traffic analysis</li>
-          <li>View real-time vehicle locations</li>
-          <li>Admin analytics and usage trends</li>
-          <li>Personalized and accessibility-aware routes</li>
+          <li>Vehicle management and trip tracking</li>
+          <li>Predictive analytics for smart route planning</li>
+          <li>Real-time traffic visualization with live data</li>
+          <li>Secure authentication and role-based access</li>
         </ul>
       </section>
 
-      <section className="quick-links">
-        <Link to="/register">Get Started</Link> | <Link to="/login">Login</Link>
-      </section>
+      <footer className="footer">
+        <p>
+          © {new Date().getFullYear()} Future Mobility Hub. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 };
