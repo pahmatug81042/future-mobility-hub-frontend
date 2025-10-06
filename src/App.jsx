@@ -1,30 +1,50 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import AdminDashboard from "./pages/AdminDashboard";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import RouteSuggestion from "./components/RouteSuggestion";
-import VehicleList from "./components/VehicleList";
+import Navbar from "./components/Navbar.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import AdminDashboard from "./pages/AdminDashboard.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import RouteSuggestion from "./components/RouteSuggestion.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 export default function App() {
   return (
     <>
       <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/route-suggestion" element={<RouteSuggestion />} />
-          <Route path="/vehicles" element={<VehicleList />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/admin"
+          element={
+            <PrivateRoute adminOnly={true}>
+              <AdminDashboard />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/route-suggestion"
+          element={
+            <PrivateRoute>
+              <RouteSuggestion />
+            </PrivateRoute>
+          }
+        />
+
+        <Route path="*" element={<p>Page not found</p>} />
+      </Routes>
     </>
   );
 };
