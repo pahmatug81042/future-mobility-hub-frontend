@@ -4,7 +4,6 @@ import { useAuth } from "../contexts/AuthContext";
 
 export default function UserProfile() {
   const { user } = useAuth();
-  const [profile, setProfile] = useState(null);
   const [formData, setFormData] = useState({ name: "", email: "" });
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
@@ -13,7 +12,6 @@ export default function UserProfile() {
     const loadProfile = async () => {
       try {
         const { data } = await fetchUserById(user._id);
-        setProfile(data);
         setFormData({ name: data.name, email: data.email });
       } catch (err) {
         console.error("Failed to load profile:", err);
@@ -33,8 +31,7 @@ export default function UserProfile() {
     e.preventDefault();
     setMessage("");
     try {
-      const { data } = await updateUserProfile(formData);
-      setProfile(data);
+      await updateUserProfile(formData);
       setMessage("Profile updated successfully!");
     } catch (err) {
       console.error("Update failed:", err);
