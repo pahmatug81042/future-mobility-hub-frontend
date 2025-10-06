@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { logoutUser } from "../services/authService";
+import ThemeToggleButton from "./ThemeToggleButton"; // Import the toggle button
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -23,6 +24,8 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <h1>Future Mobility Hub</h1>
+
+      {/* Navigation Links */}
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -60,6 +63,11 @@ export default function Navbar() {
             </li>
           </>
         )}
+
+        {/* Theme Toggle */}
+        <li>
+          <ThemeToggleButton />
+        </li>
       </ul>
     </nav>
   );
