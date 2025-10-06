@@ -1,16 +1,101 @@
-# React + Vite
+# Future Mobility Hub - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Future Mobility Hub** frontend is a modern, responsive, and interactive React application built with **React.js**, **React Router**, **Context API**, and **Leaflet.js** for maps. It connects seamlessly with the backend API to provide users with trips, vehicles, predictive analytics, and route suggestions while supporting authentication and role-based access.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Authentication**
+  - User registration and login
+  - Protected routes for authenticated users
+  - Admin access for dashboards and analytics
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Dashboard**
+  - Displays user trips, vehicles, and predictive traffic analytics
+  - Fetches real-time updates from backend
 
-## Expanding the ESLint configuration
+- **Admin Dashboard**
+  - Key statistics for trips and vehicles
+  - Weekly and monthly trip trends
+  - Vehicle usage heatmaps
+  - Predictive analytics overview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Trips**
+  - Create new trips with `TripForm`
+  - View all trips in `TripList`
+  - Predicted traffic levels included for each trip
+
+- **Vehicles**
+  - Vehicle list display
+  - Real-time vehicle tracking via Socket.io
+
+- **Route Suggestions**
+  - Optimal route recommendations based on origin and destination
+  - Traffic predictions along the suggested route
+  - Interactive map visualization using `TrafficMap` and Leaflet.js
+
+- **User Profile**
+  - Update name and email in user profile
+  - Accessible to all authenticated users
+
+- **Theme Toggle**
+  - Switch between light and dark modes
+  - Persistent theme using `ThemeContext`
+
+- **Security & Best Practices**
+  - JWT authentication for secure API access
+  - Role-based access (Admin/User)
+  - Input validation and error handling
+
+- **Responsive UI**
+  - Works on desktop and mobile devices
+  - Clean and modern design
+
+---
+
+## Tech Stack
+
+- **Frontend:** React.js, React Router, Context API
+- **State Management:** AuthContext, ThemeContext
+- **HTTP Requests:** Axios
+- **Maps & Visualization:** Leaflet.js, react-leaflet, Polyline, Marker
+- **Styling:** CSS, App.css, global and modular styles
+- **Real-Time:** Socket.io-client
+- **Protected Routes & Authentication:** Custom route protection with contexts
+
+---
+
+## Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/future-mobility-hub-frontend.git
+```
+2. Install dependencies:
+```bash
+npm install
+```
+3. Create a .env file in the root directory with:
+```env
+VITE_BACKEND_URL=http://localhost:5000
+```
+4. Start the development server:
+```bash
+npm run dev
+```
+The frontend will run on http://localhost:5173
+ by default.
+
+## Scripts
+* npm run dev – Start frontend in development mode
+* npm run build – Build frontend for production
+* npm run preview – Preview production build locally
+
+## Future Enhancements
+* Add pagination and filtering for trips and vehicles
+* Improve map visuals with custom markers and clustering
+* Implement push notifications for real-time trip/vehicle updates
+* Integrate AI-based route optimization and traffic prediction
+* Improve accessibility and mobile responsiveness
